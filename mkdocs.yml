@@ -1,0 +1,103 @@
+site_name: 网络智能化平台手册
+site_url: https://127.0.0.1:8888
+copyright: Copyright &copy; 2016 - 2024 网智平台
+repo_url: https://github.com/squidfunk/mkdocs-material
+edit_uri: edit/main/docs/
+nav:
+  - 用户手册:
+    - 能力调用:
+        - user_doc/invoke/能力应用认证.md
+        - user_doc/invoke/订阅能力调用流程.md
+        - user_doc/invoke/自研能力调用流程.md
+    - 能力上架: 
+        - user_doc/upshelf/流程概述.md
+        - user_doc/upshelf/操作指引.md
+        - user_doc/upshelf/常见问题.md
+    - 能力更新: 
+        - user_doc/update/流程概述.md
+        - user_doc/update/操作指引.md
+        - user_doc/update/常见问题.md
+  - 技术文档: 
+    - 大模型: 
+        - vicuna文档: tech_doc/bigmodel/Vicuna.md
+        - Llama2文档: tech_doc/bigmodel/Llama2.md
+        - ChatGLM文档: tech_doc/bigmodel/ChatGLM.md
+    - 算子编程:
+        - 特征算子:
+            - tech_doc/algorithm/feature_operator/互联网时序特征衍生.md
+            - tech_doc/algorithm/feature_operator/窗口统计特征.md
+            - tech_doc/algorithm/feature_operator/历史差值特征.md
+        - 数据算子:
+            - tech_doc/algorithm/data_operator/处理异常点.md
+            - tech_doc/algorithm/data_operator/带通滤波.md
+            - tech_doc/algorithm/data_operator/处理空值和无穷值.md
+        
+  
+theme:
+  name: material
+  # Copy settings from mkdocs_theme.yml, which is ignored by custom_dir themes.
+  language: zh
+  favicon: img/favicon.ico  #网站图标
+  logo: img/AI.png    #导航栏图标
+  custom_dir: overrides
+  icon:
+    previous: fontawesome/solid/angle-left
+    next: fontawesome/solid/angle-right
+    repo: fontawesome/brands/github
+  palette:
+    # 日间模式
+    - scheme: default
+      # 主颜色
+      # https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#primary-color
+      primary: indigo
+      # 链接等可交互元件的高亮色
+      # https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#accent-color
+      accent: orange
+      toggle:
+        # 图标
+        icon: material/weather-night
+        # 鼠标悬浮提示
+        name: 切换至夜间模式
+    # 夜间模式
+    - scheme: slate
+      primary: indigo
+      accent: orange
+      toggle:
+        icon: material/lightbulb-on-10
+        name: 切换至日间模式
+  features:
+#    - navigation.tabs   #顶部是否显示菜单https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#navigation-tabs-with-tabs
+    - navigation.top
+    - navigation.footer
+#    - search.suggest  #作用不大，且会产生重影
+    - search.highlight
+    - content.code.copy
+    - content.action.edit
+    - toc.follow
+    - header.autohide
+    - announce.dismiss
+
+
+
+markdown_extensions:
+  - toc:
+      permalink: '#'
+#      title: On this page
+      
+plugins:
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
+
+extra:
+  generator: false
+  social: # icons
+    - name: 网智平台
+      icon: material/web
+      link: http://172.23.4.74:30001/nip/#/login
+
+extra_css:
+  - stylesheets/extra.css
