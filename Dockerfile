@@ -1,4 +1,4 @@
-FROM damon/python3.10
+FROM python:3.11-alpine3.19
 # Environment variables
 ENV PACKAGES=/usr/local/lib/python3.11/site-packages
 ENV PYTHONDONTWRITEBYTECODE=1
