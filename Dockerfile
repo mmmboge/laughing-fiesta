@@ -6,7 +6,7 @@ ENV TIME_ZONE=Asia/Shanghai
 
 
 
-pip install requirements.txt
+RUN pip install requirements.txt
 
 EXPOSE 8000
 ENTRYPOINT ["/sbin/tini", "--", "mkdocs"]
