@@ -7,10 +7,28 @@ ENV BASE_DIR="/home/"
 
 WORKDIR /$BASE_DIR
 
-COPY docs/ .
-COPY overrides .
+COPY docs/ docs/
+COPY overrides/ overrides/
 COPY mkdocs.yml .
 COPY requirements.txt .
+
+RUN \
+  apk upgrade --update-cache -a \
+&& \
+  apk add --no-cache \
+    cairo \
+    freetype-dev \
+    git \
+    git-fast-import \
+    jpeg-dev \
+    openssh \
+    tini \
+    zlib-dev \
+&& \
+  apk add --no-cache --virtual .build \
+    gcc \
+    libffi-dev \
+    musl-dev 
 
 RUN pip install -r requirements.txt
 
