@@ -1,2 +1,9 @@
-mkdocs~=1.6
-mkdocs-material~=9.5
+mkdocs
+mkdocs-material
+jieba
+mkdocs-minify-plugin
+mkdocs-autolinks-plugin
+pygments
+pymdown-extensions
+CairoSVG
+requests
