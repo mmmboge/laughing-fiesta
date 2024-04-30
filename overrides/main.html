@@ -2,6 +2,26 @@
   This file was automatically generated - do not edit
 -#}
 {% extends "base.html" %}
+
+<!-- Custom front matter -->
+{% block extrahead %}
+
+  <!-- Extra style sheets (can't be set in mkdocs.yml due to content hash) -->
+  <link
+    rel="stylesheet"
+    href="{{ 'assets/stylesheets/custom.00c04c01.min.css' | url }}"
+  />
+{% endblock %}
+
+<!-- Announcement bar -->
 {% block announce %}
   新版本将于今天下午更新
+{% endblock %}
+
+<!-- Theme-related JavaScript -->
+{% block scripts %}
+  {{ super() }}
+
+  <!-- Extra JavaScript (can't be set in mkdocs.yml due to content hash) -->
+  <script src="{{ 'assets/javascripts/custom.e2e97759.min.js' | url }}"></script>
 {% endblock %}

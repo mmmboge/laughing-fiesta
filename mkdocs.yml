@@ -1,11 +1,19 @@
+# 运行设置
 dev_addr: "127.0.0.1:8180" #mkdocs serve 运行时使用的地址
+watch:
+  - "overrides"
 
 site_name: 网络智能化平台手册
 site_url: https://127.0.0.1:8180/help-center #  设置站点规范url
+site_author: boge
+site_description: >-
+  Write your documentation in Markdown and create a professional static site in
+  minutes – searchable, customizable, in 60+ languages, for all devices
 copyright: Copyright &copy; 2016 - 2024 网智平台
 repo_url: https://github.com/squidfunk/mkdocs-material
 edit_uri: edit/main/docs/
 nav:
+  - Home: index.md
   - 用户手册:
     - 能力调用:
         - user_doc/invoke/能力应用认证.md
@@ -54,7 +62,7 @@ theme:
       primary: indigo
       # 链接等可交互元件的高亮色
       # https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#accent-color
-      accent: orange
+      accent: indigo
       toggle:
         # 图标
         icon: material/weather-night
@@ -62,8 +70,8 @@ theme:
         name: 切换至夜间模式
     # 夜间模式
     - scheme: slate
-      primary: indigo
-      accent: orange
+      primary: black
+      accent: indigo
       toggle:
         icon: material/lightbulb-on-10
         name: 切换至日间模式
@@ -91,15 +99,12 @@ plugins:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
   - minify:
       minify_html: true
-      minify_js: true
-      minify_css: true
+      # minify_js: true
+      # minify_css: true
 
 extra:
-  generator: false
+  generator: false #关掉页面底部的“Made with Material for MkDocs”显示
   social: # icons
     - name: 网智平台
       icon: material/web
       link: http://172.23.4.74:30001/nip/#/login
-
-extra_css:
-  - stylesheets/extra.css
