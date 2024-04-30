@@ -1,5 +1,7 @@
+dev_addr: "127.0.0.1:8180" #mkdocs serve 运行时使用的地址
+
 site_name: 网络智能化平台手册
-site_url: https://127.0.0.1:8888
+site_url: https://127.0.0.1:8180/help-center #  设置站点规范url
 copyright: Copyright &copy; 2016 - 2024 网智平台
 repo_url: https://github.com/squidfunk/mkdocs-material
 edit_uri: edit/main/docs/
