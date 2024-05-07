@@ -1,9 +1,6 @@
 ---
-template: home.html
-title: Material for MkDocs
-social:
-  cards_layout_options:
-    title: Documentation that simply works
+template: home.html #定制该页面的模板
+title: 首页 #定制该页面的title
+description: 定制该页面的描述. 
+status: new
 ---
-
-Welcome to Material for MkDocs.
