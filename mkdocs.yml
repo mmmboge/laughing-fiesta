@@ -14,41 +14,41 @@ repo_url: https://github.com/squidfunk/mkdocs-material
 edit_uri: edit/main/docs/
 nav:
   - Home: index.md
+  - TestCode: creating-your-site.md
   - 用户手册:
-    - 能力调用:
-        - user_doc/invoke/能力应用认证.md
-        - user_doc/invoke/订阅能力调用流程.md
-        - user_doc/invoke/自研能力调用流程.md
-    - 能力上架: 
-        - user_doc/upshelf/流程概述.md
-        - user_doc/upshelf/操作指引.md
-        - user_doc/upshelf/常见问题.md
-    - 能力更新: 
-        - user_doc/update/流程概述.md
-        - user_doc/update/操作指引.md
-        - user_doc/update/常见问题.md
-  - 技术文档: 
-    - 大模型: 
-        - vicuna文档: tech_doc/bigmodel/Vicuna.md
-        - Llama2文档: tech_doc/bigmodel/Llama2.md
-        - ChatGLM文档: tech_doc/bigmodel/ChatGLM.md
-    - 算子编程:
-        - 特征算子:
-            - tech_doc/algorithm/feature_operator/互联网时序特征衍生.md
-            - tech_doc/algorithm/feature_operator/窗口统计特征.md
-            - tech_doc/algorithm/feature_operator/历史差值特征.md
-        - 数据算子:
-            - tech_doc/algorithm/data_operator/处理异常点.md
-            - tech_doc/algorithm/data_operator/带通滤波.md
-            - tech_doc/algorithm/data_operator/处理空值和无穷值.md
-        
-  
+      - 能力调用:
+          - user_doc/invoke/能力应用认证.md
+          - user_doc/invoke/订阅能力调用流程.md
+          - user_doc/invoke/自研能力调用流程.md
+      - 能力上架:
+          - user_doc/upshelf/流程概述.md
+          - user_doc/upshelf/操作指引.md
+          - user_doc/upshelf/常见问题.md
+      - 能力更新:
+          - user_doc/update/流程概述.md
+          - user_doc/update/操作指引.md
+          - user_doc/update/常见问题.md
+  - 技术文档:
+      - 大模型:
+          - vicuna文档: tech_doc/bigmodel/Vicuna.md
+          - Llama2文档: tech_doc/bigmodel/Llama2.md
+          - ChatGLM文档: tech_doc/bigmodel/ChatGLM.md
+      - 算子编程:
+          - 特征算子:
+              - tech_doc/algorithm/feature_operator/互联网时序特征衍生.md
+              - tech_doc/algorithm/feature_operator/窗口统计特征.md
+              - tech_doc/algorithm/feature_operator/历史差值特征.md
+          - 数据算子:
+              - tech_doc/algorithm/data_operator/处理异常点.md
+              - tech_doc/algorithm/data_operator/带通滤波.md
+              - tech_doc/algorithm/data_operator/处理空值和无穷值.md
+
 theme:
   name: material
   # Copy settings from mkdocs_theme.yml, which is ignored by custom_dir themes.
   language: zh
-  favicon: img/favicon.ico  #网站图标
-  logo: img/AI.png    #导航栏图标
+  favicon: img/favicon.ico #网站图标
+  logo: img/AI.png #导航栏图标
   custom_dir: overrides
   icon:
     previous: fontawesome/solid/angle-left
@@ -76,24 +76,71 @@ theme:
         icon: material/lightbulb-on-10
         name: 切换至日间模式
   features:
-#    - navigation.tabs   #顶部是否显示菜单https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#navigation-tabs-with-tabs
+    #    - navigation.tabs   #顶部是否显示菜单https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#navigation-tabs-with-tabs
     - navigation.top
     - navigation.footer
-#    - search.suggest  #作用不大，且会产生重影
+    - navigation.tracking #锚点跟踪, 地址栏中的url会添加锚点
+    #    - search.suggest  #作用不大，且会产生重影
     - search.highlight
     - content.code.copy
+    - content.code.annotate
     - content.action.edit
     - toc.follow
     - header.autohide
     - announce.dismiss
 
-
-
 markdown_extensions:
-  - toc:
-      permalink: '#'
-#      title: On this page
-      
+  - abbr #通过使用 abbr 标签包装元素来向元素添加小工具提示的功能。仅支持纯文本（无标记） https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#abbreviations
+  - admonition #Admonition 扩展添加了对警告的支持，通常称为标注，可以使用简单的语法在 Markdown 中定义  https://squidfunk.github.io/mkdocs-material/reference/admonitions/#usage
+  - attr_list #属性列表扩展允许使用特殊语法将 HTML 属性和 CSS 类添加到几乎每个 Markdown 内联和块级元素 https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#attribute-lists
+  - def_list # 没看明白 https://squidfunk.github.io/mkdocs-material/reference/lists/#using-definition-lists
+  - footnotes #添加脚注/引用 https://squidfunk.github.io/mkdocs-material/reference/footnotes/#usage
+  - md_in_html #允许在 HTML 中编写 Markdown，这对于使用自定义元素包装 Markdown 内容非常有用https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#markdown-in-html
+  - toc: # 根据文档生成目录
+      permalink: "#"
+  #      title: On this page
+  - pymdownx.arithmatex: #可以在 Markdown 转换过程中保留 LaTeX 数学方程，以便它们可以与 MathJax 等库一起使用
+      generic: true
+  - pymdownx.betterem: #使用特殊字符强调 Markdown 中的文本，即 **bold** 和 _italic_ 格式。https://facelessuser.github.io/pymdown-extensions/extensions/betterem/
+      smart_enable: all
+  - pymdownx.caret # 上标和下标文字 https://facelessuser.github.io/pymdown-extensions/extensions/caret/
+  - pymdownx.details #可以收缩的通知  可以用pymdownx.blocks.details 替换，https://facelessuser.github.io/pymdown-extensions/extensions/details/
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.highlight: #语法高亮https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/#highlight
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+      linenums: true #显示代码块的行数
+      # auto_title: true  # 给代码块增加一个标题，指示该代码块的语言类型，不甚准确
+  - pymdownx.inlinehilite #添加了对内联代码块的语法突出显示的支持 https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#highlighting-inline-code-blocks
+  - pymdownx.keys # ++ctrl+alt+del++  简单的方式允许呈现键盘按键和组合https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/#keys
+  - pymdownx.magiclink:
+      normalize_issue_symbols: true
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark # 可以使用==mark me==这种写法，黄底标记文字 https://facelessuser.github.io/pymdown-extensions/extensions/mark/
+  - pymdownx.smartsymbols #SmartSymbols 添加了用于创建特殊字符（例如商标、箭头、分数等）的语法  https://facelessuser.github.io/pymdown-extensions/extensions/smartsymbols/
+  - pymdownx.snippets: #Snippets 扩展添加了使用简单语法将任意文件的内容嵌入到文档（包括其他文档或源文件）中的功能。https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/#snippets
+      auto_append:
+        - includes/mkdocs.md # 添加术语表，mkdoc.md中定义的
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed: #code 代码支持多tab切换
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist: #支持任务列表，复选框样式 https://squidfunk.github.io/mkdocs-material/reference/lists/#using-task-lists
+      custom_checkbox: true #该选项切换复选框的渲染样式，用漂亮的图标替换原生复选框样式
+  - pymdownx.tilde # ~~Delete me~~  删除线 https://facelessuser.github.io/pymdown-extensions/extensions/tilde/
+
 plugins:
   - search:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
