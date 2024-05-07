@@ -1,5 +1,5 @@
 # 运行设置
-dev_addr: "127.0.0.1:8180" #mkdocs serve 运行时使用的地址
+dev_addr: "0.0.0.0:8180" #mkdocs serve 运行时使用的地址
 watch:
   - "overrides"
 
@@ -10,7 +10,7 @@ site_description: >-
   Write your documentation in Markdown and create a professional static site in
   minutes – searchable, customizable, in 60+ languages, for all devices
 copyright: Copyright &copy; 2016 - 2024 网智平台
-repo_url: https://github.com/squidfunk/mkdocs-material
+# repo_url: https://github.com/squidfunk/mkdocs-material
 edit_uri: edit/main/docs/
 nav:
   - Home: index.md
@@ -146,8 +146,8 @@ plugins:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
   - minify:
       minify_html: true
-      # minify_js: true
-      # minify_css: true
+      minify_js: true
+      minify_css: true
 
 extra:
   generator: false #关掉页面底部的“Made with Material for MkDocs”显示
