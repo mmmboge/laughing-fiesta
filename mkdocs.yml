@@ -151,6 +151,9 @@ plugins:
 
 extra:
   generator: false #关掉页面底部的“Made with Material for MkDocs”显示
+  analytics:
+    provider: google analytics
+    property: G-XQG17D5KVT
   social: # icons
     - name: 网智平台
       icon: material/web
